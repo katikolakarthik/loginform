@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
+import Success from './Success';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: ''
@@ -37,7 +40,7 @@ const Login = () => {
 
       if (user) {
         console.log("Login successful!");
-        // You can add navigation or state management here
+        navigate('/success');
       } else {
         setError('Invalid credentials');
       }
